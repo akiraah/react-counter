@@ -9,12 +9,9 @@ jobs:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
     steps:
-      - checkout
       - run:
           name: "Executing docker run test"
-          command: |
-            echo $DOCKERHUB_USERNAME $DOCKERHUB_PASSWORD
-            yarn && yarn test
+          command: yarn && yarn test
       - setup_remote_docker: 
           version: 19.03.13
 
