@@ -2,12 +2,14 @@ version: 2.1
 
 jobs: 
   build:
+    working_directory: ~/app
     docker:
       - image: arah24/docker-react
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
     steps:
+      - checkout
       - run:
           name: "Executing docker run test"
           command: |
