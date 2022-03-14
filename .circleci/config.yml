@@ -11,8 +11,10 @@ jobs:
       - run:
           name: "Executing docker run test"
           command: |
-            echo "$DOCKERHUB_USERNAME" $DOCKERHUB_PASSWORD
-            docker run arah24/docker-react yarn test --coverage .
+            echo $DOCKERHUB_USERNAME $DOCKERHUB_PASSWORD
+            yarn test --coverage .
+      - setup_remote_docker: 
+          version: 19.03.13
 
 workflow:
   build:
