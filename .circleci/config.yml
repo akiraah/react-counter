@@ -8,9 +8,9 @@ jobs:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
     steps:
-      run:
-        name: "Executing docker run test"
-        command: "docker run arah24/docker-react yarn test"
+      - run:
+          name: "Executing docker run test"
+          command: "docker run arah24/docker-react yarn test"
 
 workflow:
   build_and_test:
