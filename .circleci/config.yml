@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs: 
-  test:
+  build:
     docker:
       - image: arah24/docker-react-prod
         auth:
@@ -10,10 +10,10 @@ jobs:
     steps:
       - run:
           name: "Executing docker run test"
-          command: "docker run arah24/docker-react yarn test"
+          command: "docker run arah24/docker-react yarn test --coverage ."
 
 workflow:
-  build_and_test:
+  build:
     jobs:
       - test:
           context: 'react-counter'
