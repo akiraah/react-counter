@@ -1,11 +1,20 @@
 version: 2.1
+
 jobs: 
-  build:
+  test:
     docker:
-      - image: alpine:3.7
+      - image: arah24/docker-react-prod
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     steps:
-      - run: 
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'The initial build for ci.'
+      run:
+        name: "Executing docker run test"
+        command: "docker run arah24/docker-react yarn test"
+
+workflow:
+  build_and_test:
+    jobs:
+      - test:
+          context: 'react-counter'
+
