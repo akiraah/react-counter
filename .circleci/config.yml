@@ -3,14 +3,16 @@ version: 2.1
 jobs: 
   build:
     docker:
-      - image: arah24/docker-react-prod
+      - image: arah24/docker-react
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
     steps:
       - run:
           name: "Executing docker run test"
-          command: "docker run arah24/docker-react yarn test --coverage ."
+          command: |
+            echo "$DOCKERHUB_USERNAME" $DOCKERHUB_PASSWORD
+            docker run arah24/docker-react yarn test --coverage .
 
 workflow:
   build:
