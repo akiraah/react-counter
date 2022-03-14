@@ -7,5 +7,5 @@ jobs:
       - run: 
           name: The First Step
           command: |
-          echo 'Hello world'
-          echo 'The initial build for ci.'
+            echo 'Hello World!'
+            echo 'The initial build for ci.'
