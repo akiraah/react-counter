@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: alpine:3.7
-      steps:
+    steps:
       - run: 
           name: The First Step
           command: |
