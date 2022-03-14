@@ -12,7 +12,7 @@ jobs:
           name: "Executing docker run test"
           command: |
             echo $DOCKERHUB_USERNAME $DOCKERHUB_PASSWORD
-            yarn test --coverage .
+            yarn && yarn test
       - setup_remote_docker: 
           version: 19.03.13
 
